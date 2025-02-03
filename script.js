@@ -342,14 +342,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function downloadTable() {
         const csv = ['Имя игрока,Выигранные игры,Оставшиеся игры'];
-        players.forEach(player => {
-            const wonGames = winsTableBody.querySelector(tr[data-player-name="${player.name}"] td:last-child).textContent;
-            const remainingGames = player.games.join(';');
-            csv.push(${player.name},${wonGames},${remainingGames});
-        });
+        // players.forEach(player => {
+        //     const wonGames = winsTableBody.querySelector(tr[data-player-name="${player.name}"] td:last-child).textContent;
+        //     const remainingGames = player.games.join(';');
+        //     csv.push(${player.name},${wonGames},${remainingGames});
+        // });
         const csvString = csv.join('\n');
         const json = JSON.stringify(players)
-        const result = ${window.location.origin}/csv#${encodeURIComponent(json)}
+        const result = `${window.location.origin}/csv#${encodeURIComponent(json)}`
         console.log(result)
         navigator.clipboard.writeText(result)
 
