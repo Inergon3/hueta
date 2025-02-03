@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Колесо фортуны</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Модальное окно правил -->
+    <div id="rulesModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Правила челленджа</h2>
+            <div id="rulesContent" class="rules-scrollable">
+                <p><strong>Цель:</strong></p>
+                <p>Предоставить участнику новый, захватывающий и качественный игровой опыт. Для этого необходимо наиграть 30 часов в случайно выбранную игру из списка, предложенного участниками, в течение 2 недель.</p>
+                <p><strong>Основные правила:</strong></p>
+                <ul>
+                    <li>Игры выбираются из библиотеки семейного доступа Steam.</li>
+                    <li>VR-игры не могут быть выбраны.</li>
+                    <li>Если участник не входит в семью, он должен приобрести игру самостоятельно.</li>
+                    <li>Все участники должны согласовать выбранную игру и условия.</li>
+                    <li>Решение принимается большинством голосов.</li>
+                </ul>
+                <p><strong>Реролл:</strong></p>
+                <ul>
+                    <li>Возможен после 3 часов игры в предыдущую игру.</li>
+                    <li>Время челленджа сбрасывается.</li>
+                    <li>Предоставляются новые 2 недели с момента реролла.</li>
+                </ul>
+                <p><strong>Наказание:</strong></p>
+                <ul>
+                    <li>При невыполнении - покупка игры до 300 рублей всем выполнившим.</li>
+                    <li>Применяется при невыполнении основного наказания.</li>
+                </ul>
+                <p><strong>Дополнительные правила:</strong></p>
+                <ul>
+                    <li>Время определяется в Steam.</li>
+                    <li>Прохождение = завершение основной сюжетной линии или 30 часов.</li>
+                    <li>Запрещено AFK и искусственное увеличение времени.</li>
+                    <li>Запрещены читы, гайды, моды (кроме локализации).</li>
+                    <li>Нельзя чрезмерно скипать диалоги.</li>
+                    <li>Каждый участник выбирает три игры.</li>
+                    <li>Свои предложенные игры нельзя получить.</li>
+                    <li>Минимальная сложность - "Нормал".</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Основной интерфейс -->
+    <div id="app">
+        <div id="left-panel">
+            <h2>Управление игроками</h2>
+            <input type="text" id="playerInput" placeholder="Добавить игрока">
+            <button id="addPlayer">Добавить игрока</button>
+            <button id="editPlayer">Редактировать игрока</button>
+            <button id="deletePlayer">Удалить игрока</button>
+            <select id="playerSelect"></select>
+            <h2>Добавить игру</h2>
+            <input type="text" id="gameInput" placeholder="Название игры">
+            <button id="addGame">Добавить игру</button>
+            <ul id="gamesList"></ul>
+        </div>
+
+        <div id="center-panel">
+            <div id="pointer"></div>
+            <svg id="wheel" viewBox="-1 -1 2 2"></svg>
+            <div id="wheel-controls">
+                <label for="spinDuration">Время вращения (сек):</label>
+                <input type="number" id="spinDuration" value="5">
+                <button id="spin">Покрутить!</button>
+                <button id="stopSpin" style="display: none;">Стоп</button>
+                <button id="acceptResult" style="display: none;">Принять результат</button>
+                <div id="timer">Осталось времени: 0 сек</div>
+                <div id="result"></div>
+            </div>
+        </div>
+
+        <div id="right-panel">
+            <h2>Таблица победителей</h2>
+            <table id="winsTable">
+                <thead>
+                    <tr>
+                        <th>Игрок</th>
+                        <th>Выигрыш</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <div id="tableButtons">
+                <button id="downloadTable">Скачать таблицу</button>
+                <button id="uploadTable">Загрузить таблицу</button>
+            </div>
+        </div>
+    </div>
+
+    <button id="rulesButton">Правила</button>
+    <input type="file" id="fileInput" style="display: none;">
+
+    <script src="script.js"></script>
+</body>
+</html>
