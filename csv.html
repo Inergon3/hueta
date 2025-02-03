@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=DqA8sj8KWOS2svNFZyQO6WNVoqRxS0k4g35B3TEmlBzuKnwKBXzwYYZ63qwHYVRcOkcSRer609yqma6tkZHveeCzWkKnUNvJr3X5jV9kA7t1fH_dFzCuPloKlNQOSaYTHgAfsDoTGhyse-oxK1dRaO_KgTOI47Bc4QUiD45wKtLsgFcih3h6MQQhTDqCiNAfR5UqWu1FLI-1OCgO1ysXWaH-fc64WzCd21hMvujpbhSoQrKTv98RvIBJOq4n0niEU6-9u_0OgDB_tR1TduyLQg" charset="UTF-8"></script></head>
 <body>
-    <table id="res"></table>
+    <table id="res">
+        <tbody id="table_body"></tbody>
+    </table>
 </body>
 </html>
 <script>
@@ -44,7 +47,7 @@ function jsonToCsv(jsonData) {
 
     const json = JSON.parse(decodedHash)
 
-    const table = document.getElementById("res")
+    const table = document.getElementById("table_body")
 
     //[{"name":"1","games":["3","4"]},{"name":"2","games":["5","6"]}]
     const header = Object.keys(json[0])
